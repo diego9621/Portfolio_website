@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Price Scraping System | Data Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .close:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .clickable-image {
+            cursor: zoom-in;
+            transition: all 0.3s ease;
+        }
+        
+        .clickable-image:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 gradient-bg">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-sm border-b border-gray-700 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Data Portfolio
+                </h1>
+                <a href="../../index.html" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 px-6 py-2 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="w-24 h-24 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl">
+                    💰
+                </div>
+                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    Competitor Price Scraping System
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Advanced competitor price monitoring system with AI-powered product matching, real-time data extraction from multiple sources, and comprehensive analytics dashboard for strategic pricing decisions.
+                </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="flex justify-center flex-wrap gap-3 mb-12">
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">Python</span>
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">OpenAI GPT</span>
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">Async Processing</span>
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">BigQuery</span>
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">Looker Studio</span>
+                <span class="bg-gray-700 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium">Cosine Similarity</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Overview -->
+    <section class="py-16 px-4 bg-gray-800/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">System Architecture</h2>
+            
+            <!-- Architecture Image Section -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-semibold text-white mb-4">AI-Powered Product Matching Pipeline</h3>
+                    <p class="text-gray-300 max-w-3xl mx-auto mb-8">
+                        Sophisticated multi-stage matching process using cosine similarity and GPT-4 for accurate product identification across competitor catalogs, handling 7,600+ products daily.
+                    </p>
+                </div>
+                
+                <!-- System Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-emerald-400">4</div>
+                        <div class="text-xs text-gray-300">Competitors</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-teal-400">7.6K+</div>
+                        <div class="text-xs text-gray-300">Products/Day</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-blue-400">3.5K</div>
+                        <div class="text-xs text-gray-300">Mappings</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-green-400">&lt; 74s</div>
+                        <div class="text-xs text-gray-300">Full Scrape</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Competitors Grid -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Monitored Competitors</h3>
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        Each competitor requires custom scraping strategies due to different website architectures, from clean APIs to complex HTML parsing challenges.
+                    </p>
+                </div>
+                
+                <!-- Competitors Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Mayesh -->
+                    <div class="bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-500/30 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                            <h4 class="text-lg font-bold text-white">Mayesh</h4>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• JSON API Integration</li>
+                            <li>• Farm Direct Products</li>
+                            <li>• Inventory Levels</li>
+                            <li>• Grower Information</li>
+                            <li>• Margin Calculations</li>
+                        </ul>
+                        <div class="mt-4 text-xs text-blue-400">1,617 Products Daily</div>
+                    </div>
+
+                    <!-- PetalJet -->
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-600/20 border border-purple-500/30 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                            <h4 class="text-lg font-bold text-white">PetalJet</h4>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Paginated JSON API</li>
+                            <li>• 22 Page Iterations</li>
+                            <li>• Concurrent Requests (5)</li>
+                            <li>• Variant Pricing</li>
+                            <li>• Product Enrichment</li>
+                        </ul>
+                        <div class="mt-4 text-xs text-purple-400">3,227 Products Daily</div>
+                    </div>
+
+                    <!-- FlowerMarketPlace -->
+                    <div class="bg-gradient-to-br from-green-500/20 to-blue-600/20 border border-green-500/30 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                            <h4 class="text-lg font-bold text-white">FlowerMarketPlace</h4>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• AJAX API Endpoints</li>
+                            <li>• Complex Price Tiers</li>
+                            <li>• Aggressive Cleaning</li>
+                            <li>• Stem Length Extract</li>
+                            <li>• Selection Logic</li>
+                        </ul>
+                        <div class="mt-4 text-xs text-green-400">1,446 Products Daily</div>
+                    </div>
+
+                    <!-- DVFlora -->
+                    <div class="bg-gradient-to-br from-red-500/20 to-orange-600/20 border border-red-500/30 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                            <h4 class="text-lg font-bold text-white">DVFlora</h4>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• HTML Table Parsing</li>
+                            <li>• 50 Concurrent Requests</li>
+                            <li>• Selectolax Speed</li>
+                            <li>• Duplicate Filtering</li>
+                            <li>• Regex Cleanup</li>
+                        </ul>
+                        <div class="mt-4 text-xs text-red-400">1,339 Products Daily</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Matching Process -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Matching Algorithm -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">AI Product Matching Algorithm</h2>
+                        <div class="space-y-4 text-gray-300 leading-relaxed">
+                            <p>
+                                Developed a sophisticated two-stage matching system combining cosine similarity vector embeddings 
+                                with GPT-4 intelligence to accurately match products across competitor catalogs with over 95% accuracy.
+                            </p>
+                            <p>
+                                The system processes cleaned catalog data, generates vector embeddings for semantic similarity, 
+                                identifies top-k candidates, and leverages AI to select the most confident matches while rejecting uncertain ones.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Technical Implementation -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Technical Deep Dive</h2>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-emerald-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Async Scraping Architecture</h3>
+                                <p class="text-gray-300">
+                                    Built high-performance async scrapers using aiohttp with intelligent concurrency limits (5-50 requests) 
+                                    to optimize speed while respecting server constraints and avoiding blocks.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-teal-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Intelligent Data Cleaning</h3>
+                                <p class="text-gray-300">
+                                    Implemented multi-strategy cleaning pipeline with "safe" and "aggressive" modes, handling 
+                                    abbreviation expansion, regex patterns, and competitor-specific data normalization.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Real-time BigQuery Integration</h3>
+                                <p class="text-gray-300">
+                                    Seamless data pipeline exporting cleaned competitor data to BigQuery with competitor-specific 
+                                    field mapping and automated table management for immediate analytics access.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Metrics -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Performance & Reliability</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-emerald-400 mb-2">7,629</div>
+                                <div class="text-gray-300">Products Processed Daily</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-teal-400 mb-2">73.8s</div>
+                                <div class="text-gray-300">Full Scraping Duration</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-blue-400 mb-2">95%+</div>
+                                <div class="text-gray-300">Matching Accuracy</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-green-400 mb-2">3,500+</div>
+                                <div class="text-gray-300">Master Mappings</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Examples -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Key Implementation Highlights</h2>
+                        <div class="space-y-6">
+                            <div class="bg-gray-900/50 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-emerald-400 mb-2">Async Orchestration</h4>
+                                <div class="text-sm text-gray-300 font-mono">
+                                    await asyncio.gather(<br>
+                                    &nbsp;&nbsp;run_scraper(fetch_mayesh_products, eta_date, "mayesh"),<br>
+                                    &nbsp;&nbsp;run_scraper(fetch_petaljet_products, eta_date, "petaljet"),<br>
+                                    &nbsp;&nbsp;run_scraper(fetch_flowermarketplace_products, eta_date, "flowermarketplace"),<br>
+                                    &nbsp;&nbsp;run_scraper(fetch_dvflora_products, eta_date, "dvflora")<br>
+                                    )
+                                </div>
+                            </div>
+                            <div class="bg-gray-900/50 rounded-xl p-4">
+                                <h4 class="text-lg font-semibold text-teal-400 mb-2">AI Matching Pipeline</h4>
+                                <div class="text-sm text-gray-300 font-mono">
+                                    # Vector similarity → GPT selection → Master table JOIN<br>
+                                    candidates = cosine_similarity(competitor_product, catalog)<br>
+                                    best_match = gpt_select_best_match(product, top_k_candidates)<br>
+                                    final_data = sql_join_with_master_table(matched_products)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Project Info -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Project Details</h3>
+                        <div class="space-y-3 text-gray-300">
+                            <div>
+                                <strong class="text-white">Duration:</strong> 4 months
+                            </div>
+                            <div>
+                                <strong class="text-white">Products/Day:</strong> 7,629
+                            </div>
+                            <div>
+                                <strong class="text-white">Competitors:</strong> 4 active
+                            </div>
+                            <div>
+                                <strong class="text-white">Accuracy:</strong> 95%+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Features -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Technical Features</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                Async concurrent scraping
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                AI-powered product matching
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                Vector embeddings & cosine similarity
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                Multi-strategy data cleaning
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                Real-time BigQuery pipeline
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-emerald-400 mr-2">✓</span>
+                                Comprehensive logging & monitoring
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Data Sources -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Data Sources</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-gray-700/50 rounded-lg p-3">
+                                <div class="text-blue-400 font-semibold mb-1">JSON APIs</div>
+                                <div class="text-gray-300">Mayesh, PetalJet, FlowerMarketPlace</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-lg p-3">
+                                <div class="text-red-400 font-semibold mb-1">HTML Parsing</div>
+                                <div class="text-gray-300">DVFlora complex table extraction</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-lg p-3">
+                                <div class="text-green-400 font-semibold mb-1">Master Catalog</div>
+                                <div class="text-gray-300">3,500+ product mappings</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Resources</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="block bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 px-6 py-3 rounded-xl text-white font-semibold text-center transition-all duration-300 transform hover:scale-105">
+                                Live Dashboard
+                            </a>
+                            <a href="#" class="block bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl text-gray-300 hover:text-white font-semibold text-center transition-all duration-300">
+                                API Documentation
+                            </a>
+                            <a href="#" class="block bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl text-gray-300 hover:text-white font-semibold text-center transition-all duration-300">
+                                Matching Algorithm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-8 border-t border-gray-700">
+        <p class="text-gray-400">
+            &copy; 2025 Data Portfolio. Built with AI-powered competitive intelligence.
+        </p>
+    </footer>
+</body>
+</html>

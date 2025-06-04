@@ -94,7 +94,7 @@ const App = () => {
       title: 'Competitor Price Scraping',
       description: 'Advanced competitor price monitoring system with AI-powered product matching, real-time data extraction from multiple sources, and comprehensive analytics dashboard.',
       tech: ['Python', 'OpenAI GPT', 'Async Processing', 'BigQuery', 'Looker Studio'],
-      link: '/pages/competitor-price-scraping.html', // Updated path
+      link: '/pages/competitor-pricing.html', // Updated path
       gradient: 'from-emerald-500 to-teal-600',
       image: 'https://cdn-icons-png.flaticon.com/512/2920/2920277.png',
       imageAlt: 'Competitor Price Scraping System'
