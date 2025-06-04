@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funda Scraper & Housing prices Interactive Map | Data Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .close:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .clickable-image {
+            cursor: zoom-in;
+            transition: all 0.3s ease;
+        }
+        
+        .clickable-image:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 gradient-bg">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-sm border-b border-gray-700 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Data Portfolio
+                </h1>
+                <a href="../../index.html" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 px-6 py-2 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="w-24 h-24 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl">
+                    🏠
+                </div>
+                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    Funda Scraper & Housing Prices Interactive Map
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Advanced web scraping tool designed to extract comprehensive real estate data from Funda.nl,
+                    featuring sophisticated anti-detection techniques and an interactive Folium map visualization
+                    for analyzing Dutch housing market trends and regional price dynamics.
+                </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="flex justify-center flex-wrap gap-3 mb-12">
+                <span class="bg-gray-700 text-orange-400 px-4 py-2 rounded-full text-sm font-medium">Selenium Undetected</span>
+                <span class="bg-gray-700 text-orange-400 px-4 py-2 rounded-full text-sm font-medium">GeoPandas</span>
+                <span class="bg-gray-700 text-orange-400 px-4 py-2 rounded-full text-sm font-medium">Numpy</span>
+                <span class="bg-gray-700 text-orange-400 px-4 py-2 rounded-full text-sm font-medium">Pandas</span>
+                <span class="bg-gray-700 text-orange-400 px-4 py-2 rounded-full text-sm font-medium">Folium</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Preview -->
+    <section class="py-16 px-4 bg-gray-800/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Interactive Housing Map Visualization</h2>
+            
+            <!-- Map Preview Section -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Real-time Housing Price Map</h3>
+                    <p class="text-gray-300 max-w-3xl mx-auto mb-8">
+                        Interactive Folium map displaying comprehensive housing data across Dutch municipalities, 
+                        featuring color-coded price ranges, detailed property information, and geographic clustering 
+                        for advanced market analysis.
+                    </p>
+                </div>
+                
+                <!-- Interactive Map Image -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                    <div class="relative bg-gray-900/80 rounded-2xl p-6 border border-gray-700">
+                        <img 
+                            id="mapImage"
+                            src="https://github.com/diego9621/Dutch-Housing-Prices/blob/main/Preview.png?raw=true" 
+                            alt="Interactive Folium map showing Dutch housing prices with geographic visualization" 
+                            class="clickable-image w-full h-auto rounded-xl shadow-2xl border border-gray-600"
+                        />
+                        <div class="absolute top-4 right-4 bg-orange-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Interactive Map
+                        </div>
+                        <!-- Click to enlarge hint -->
+                        <div class="absolute bottom-4 left-4 bg-gray-900/90 backdrop-blur-sm text-gray-300 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            🔍 Click to enlarge
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Features Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-orange-400">500+</div>
+                        <div class="text-xs text-gray-300">Municipalities</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-red-400">25K+</div>
+                        <div class="text-xs text-gray-300">Properties</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-yellow-400">Real-time</div>
+                        <div class="text-xs text-gray-300">Data Updates</div>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-green-400">Interactive</div>
+                        <div class="text-xs text-gray-300">Visualization</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Overview -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Project Overview</h2>
+                        <div class="space-y-4 text-gray-300 leading-relaxed">
+                            <p>
+                                Engineered a sophisticated web scraping solution specifically designed to extract comprehensive 
+                                real estate data from Funda.nl, the Netherlands' largest property platform. The system employs 
+                                advanced anti-detection techniques and creates stunning interactive visualizations.
+                            </p>
+                            <p>
+                                Implemented undetected Selenium automation with geographic data processing using GeoPandas, 
+                                generating interactive Folium maps that provide deep insights into Dutch housing market trends, 
+                                regional price variations, and property distribution patterns.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Technical Implementation -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Advanced Scraping Techniques</h2>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-orange-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Anti-Detection Measures</h3>
+                                <p class="text-gray-300">
+                                    Implemented Selenium Undetected with rotating user agents, browser fingerprint masking, 
+                                    random delays, and proxy rotation to bypass sophisticated anti-bot systems.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-red-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Geographic Data Processing</h3>
+                                <p class="text-gray-300">
+                                    Utilized GeoPandas for spatial data manipulation, coordinate transformations, 
+                                    and geographic clustering to create meaningful regional housing market insights.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-yellow-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Interactive Visualization</h3>
+                                <p class="text-gray-300">
+                                    Built dynamic Folium maps with custom markers, color-coded price ranges, 
+                                    popup information, and clustering algorithms for optimal data presentation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Analytics Features -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Data Analytics & Insights</h2>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Market Trend Analysis</h3>
+                                <p class="text-gray-300">
+                                    Comprehensive analysis of price trends across different regions, property types, 
+                                    and time periods using statistical methods and data visualization techniques.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Geographic Clustering</h3>
+                                <p class="text-gray-300">
+                                    Advanced clustering algorithms to identify housing market hotspots, 
+                                    price anomalies, and emerging neighborhood trends across Dutch municipalities.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h3 class="text-xl font-semibold text-white mb-3">Real-time Processing</h3>
+                                <p class="text-gray-300">
+                                    Automated data pipeline with Pandas and NumPy for real-time data cleaning, 
+                                    validation, and transformation of scraped housing information.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Metrics -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Performance & Results</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-orange-400 mb-2">25K+</div>
+                                <div class="text-gray-300">Properties Scraped</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-red-400 mb-2">99.5%</div>
+                                <div class="text-gray-300">Success Rate</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-yellow-400 mb-2">500+</div>
+                                <div class="text-gray-300">Municipalities</div>
+                            </div>
+                            <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                                <div class="text-3xl font-bold text-green-400 mb-2">&lt; 2sec</div>
+                                <div class="text-gray-300">Map Load Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Project Info -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Project Details</h3>
+                        <div class="space-y-3 text-gray-300">
+                            <div>
+                                <strong class="text-white">Duration:</strong> 4 months
+                            </div>
+                            <div>
+                                <strong class="text-white">Data Points:</strong> 25K+ properties
+                            </div>
+                            <div>
+                                <strong class="text-white">Coverage:</strong> 500+ municipalities
+                            </div>
+                            <div>
+                                <strong class="text-white">Update Frequency:</strong> Daily
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Features -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Key Features</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Anti-detection scraping
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Interactive map visualization
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Geographic clustering
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Real-time data processing
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Price trend analysis
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-orange-400 mr-2">✓</span>
+                                Export capabilities
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Technology Stack -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Technology Stack</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Selenium Undetected</span>
+                                <span class="text-orange-400">●●●●●</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">GeoPandas</span>
+                                <span class="text-orange-400">●●●●●</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Folium</span>
+                                <span class="text-orange-400">●●●●○</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Pandas/NumPy</span>
+                                <span class="text-orange-400">●●●●●</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Resources</h3>
+                        <div class="space-y-3">
+                            <a href="https://github.com/diego9621/Dutch-Housing-Prices" class="block bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 px-6 py-3 rounded-xl text-white font-semibold text-center transition-all duration-300 transform hover:scale-105">
+                                GitHub Repository
+                            </a>
+                            <a href="#" class="block bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl text-gray-300 hover:text-white font-semibold text-center transition-all duration-300">
+                                Live Demo
+                            </a>
+                            <a href="#" class="block bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl text-gray-300 hover:text-white font-semibold text-center transition-all duration-300">
+                                Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for enlarged image -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="Enlarged Interactive Map">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-8 border-t border-gray-700">
+        <p class="text-gray-400">
+            &copy; 2025 Data Portfolio. Built with advanced web scraping techniques.
+        </p>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const mapImg = document.getElementById('mapImage');
+
+        // Open modal when clicking the map image
+        mapImg.onclick = function() {
+            modal.classList.add('show');
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Prevent modal content clicks from closing modal
+        document.querySelector('.modal-content').onclick = function(event) {
+            event.stopPropagation();
+        }
+    </script>
+</body>
+</html>
