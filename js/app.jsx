@@ -1,6 +1,8 @@
-const App = () => {
+const { HashRouter, Routes, Route, Link } = ReactRouterDOM;
+
+const Home = () => {
   React.useEffect(() => {
-    const links = document.querySelectorAll('nav a');
+    const links = document.querySelectorAll('nav a[href^="#"]');
     links.forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault();
@@ -45,18 +47,18 @@ const App = () => {
       <section id="projects" className="p-4">
         <h2 className="text-xl font-semibold mb-2">Projects</h2>
         <div className="space-y-4">
-          <a href="web-scraping.html" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
+          <Link to="/web-scraping" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
             <h3 className="font-bold">Web Scraping Pipeline</h3>
             <p>Automated scraper extracting data from multiple sources, storing it in a database and powering real-time dashboards.</p>
-          </a>
-          <a href="etl-retail.html" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
+          </Link>
+          <Link to="/etl-retail" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
             <h3 className="font-bold">ETL for Retail Analytics</h3>
             <p>Robust ETL workflow in Python and SQL moving millions of records daily with high reliability and speed.</p>
-          </a>
-          <a href="data-visualization.html" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
+          </Link>
+          <Link to="/data-visualization" className="block bg-gray-700 rounded shadow p-4 hover:bg-gray-600">
             <h3 className="font-bold">Data Visualization Toolkit</h3>
             <p>Scripts to transform raw datasets into clean, interactive charts.</p>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -71,5 +73,55 @@ const App = () => {
     </div>
   );
 };
+
+const WebScraping = () => (
+  <div className="max-w-4xl mx-auto p-4">
+    <header className="bg-gray-800 p-4 rounded mb-4">
+      <h1 className="text-2xl font-bold">Web Scraping Pipeline</h1>
+      <Link to="/" className="text-indigo-400 underline">Back to Home</Link>
+    </header>
+    <main className="space-y-4">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      <p>Aliquam sit amet turpis ac odio tempus tristique. Curabitur nec orci vitae leo lacinia auctor quis non justo.</p>
+    </main>
+  </div>
+);
+
+const EtlRetail = () => (
+  <div className="max-w-4xl mx-auto p-4">
+    <header className="bg-gray-800 p-4 rounded mb-4">
+      <h1 className="text-2xl font-bold">ETL for Retail Analytics</h1>
+      <Link to="/" className="text-indigo-400 underline">Back to Home</Link>
+    </header>
+    <main className="space-y-4">
+      <p>Placeholder content describing the ETL workflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Vivamus sit amet urna feugiat, ultricies ipsum id, faucibus lorem. Maecenas tincidunt facilisis lacus.</p>
+    </main>
+  </div>
+);
+
+const DataVisualization = () => (
+  <div className="max-w-4xl mx-auto p-4">
+    <header className="bg-gray-800 p-4 rounded mb-4">
+      <h1 className="text-2xl font-bold">Data Visualization Toolkit</h1>
+      <Link to="/" className="text-indigo-400 underline">Back to Home</Link>
+    </header>
+    <main className="space-y-4">
+      <p>Information about creating interactive charts and cleaning datasets will go here. Lorem ipsum dolor sit amet.</p>
+      <p>More placeholder text elaborating on features and techniques used in the project.</p>
+    </main>
+  </div>
+);
+
+const App = () => (
+  <HashRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/web-scraping" element={<WebScraping />} />
+      <Route path="/etl-retail" element={<EtlRetail />} />
+      <Route path="/data-visualization" element={<DataVisualization />} />
+    </Routes>
+  </HashRouter>
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
