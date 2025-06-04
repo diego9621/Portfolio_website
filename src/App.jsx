@@ -43,21 +43,21 @@ const App = () => {
       title: 'Web Scraping Pipeline',
       description: 'Automated scraper extracting data from multiple sources, storing it in a database and powering real-time dashboards.',
       tech: ['Python', 'BeautifulSoup', 'Scrapy', 'PostgreSQL'],
-      link: 'web-scraping.html',
+      link: 'src/pages/web-scraping.html',
       gradient: 'from-blue-500 to-purple-600'
     },
     {
       title: 'ETL for Retail Analytics',
       description: 'Robust ETL workflow in Python and SQL moving millions of records daily with high reliability and speed.',
       tech: ['Python', 'Apache Airflow', 'SQL', 'AWS'],
-      link: 'etl-retail.html',
+      link: 'src/pages/etl-retail.html',
       gradient: 'from-green-500 to-blue-600'
     },
     {
       title: 'Data Visualization Toolkit',
       description: 'Scripts to transform raw datasets into clean, interactive charts and comprehensive dashboards.',
       tech: ['Python', 'Plotly', 'Dash', 'Pandas'],
-      link: 'data-visualization.html',
+      link: 'src/pages/data-visualization.html',
       gradient: 'from-purple-500 to-pink-600'
     }
   ];
