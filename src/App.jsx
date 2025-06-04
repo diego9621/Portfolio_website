@@ -1,5 +1,7 @@
+import React, { useEffect } from 'react';
+
 const App = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     const links = document.querySelectorAll('nav a');
     links.forEach(link => {
       link.addEventListener('click', event => {
@@ -72,4 +74,4 @@ const App = () => {
   );
 };
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+export default App;

@@ -1,0 +1,32 @@
+{
+  "name": "portfolio_website",
+  "version": "1.0.0",
+  "description": "This website highlights coding projects and skills in data handling, web scraping, ETL pipelines, and clear data presentation. It uses **React** and **Tailwind CSS**, both loaded from CDNs so the site can be deployed as static files without a build step.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "jest": "^29.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "babel-jest": "^29.0.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0"
+  }
+}
