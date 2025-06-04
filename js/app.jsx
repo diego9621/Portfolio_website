@@ -22,7 +22,14 @@ const App = () => {
               <a href="#projects" className="hover:underline">Projects</a>
               <a href="#contact" className="hover:underline">Contact</a>
             </nav>
-            <button onClick={() => window.toggleTheme()} className="border rounded px-2 py-1">Toggle Theme</button>
+            <button
+              type="button"
+              aria-label="Toggle dark mode"
+              onClick={() => window.toggleTheme()}
+              className="border rounded px-2 py-1"
+            >
+              Toggle Theme
+            </button>
           </div>
         </div>
       </header>
