@@ -64,7 +64,7 @@ const App = () => {
       title: 'Funda Web Scraper',
       description: 'A sophisticated web scraper for Funda.nl, extracting real estate data with advanced techniques to bypass anti-scraping measures.',
       tech: ['Selenium Undetected', 'GeoPanda', 'Numpy', 'Pandas', 'Folium' ],
-      link: 'src/pages/data-visualization.html',
+      link: 'src/pages/funda-scraper.html',
       gradient: 'from-purple-500 to-pink-600'
     }
   ];
