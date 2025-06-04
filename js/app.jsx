@@ -1,4 +1,26 @@
 const App = () => {
+  const [formStatus, setFormStatus] = React.useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    try {
+      const response = await fetch(event.target.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        setFormStatus('Thanks for reaching out!');
+        event.target.reset();
+      } else {
+        setFormStatus('There was an error sending your message.');
+      }
+    } catch (err) {
+      setFormStatus('There was an error sending your message.');
+    }
+  };
+
   React.useEffect(() => {
     const links = document.querySelectorAll('nav a');
     links.forEach(link => {
@@ -62,7 +84,41 @@ const App = () => {
 
       <section id="contact" className="p-4 bg-gray-800">
         <h2 className="text-xl font-semibold mb-2">Contact</h2>
-        <p>Email: <a href="mailto:your.email@example.com" className="text-indigo-400 underline">your.email@example.com</a></p>
+        <form
+          onSubmit={handleSubmit}
+          action="https://formspree.io/f/mayvaykz"
+          method="POST"
+          className="space-y-2 max-w-md mx-auto"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="w-full p-2 rounded text-gray-900"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="w-full p-2 rounded text-gray-900"
+          />
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            required
+            className="w-full p-2 rounded text-gray-900"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded"
+          >
+            Send
+          </button>
+        </form>
+        {formStatus && <p className="mt-2">{formStatus}</p>}
       </section>
 
       <footer className="bg-gray-800 text-gray-100 text-center p-4 mt-4">
