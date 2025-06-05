@@ -18,13 +18,19 @@ const Hero = () => {
           </p>
         </div>
         
-        <div className="flex justify-center space-x-6 mt-8">
-          <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a 
+            href="#projects" 
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105"
+          >
             View Projects
-          </button>
-          <button className="border-2 border-gray-500 hover:border-blue-400 px-8 py-3 rounded-full text-gray-300 hover:text-blue-400 font-semibold transition-all duration-300">
-            Download CV
-          </button>
+          </a>
+          <a 
+            href="./pages/my-story.html" 
+            className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105"
+          >
+            My Story
+          </a>
         </div>
       </div>
     </section>

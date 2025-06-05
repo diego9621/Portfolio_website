@@ -10,6 +10,66 @@
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
         
+        /* Code block styling */
+        .code-block {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d1117 100%);
+            border: 1px solid #30363d;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: auto;
+        }
+        
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #06b6d4, #3b82f6);
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+        
+        .code-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+            margin-right: 1rem;
+        }
+        
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27ca3f; }
+        
+        .code-content {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #e6edf3;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .code-keyword { color: #ff7b72; }
+        .code-function { color: #d2a8ff; }
+        .code-string { color: #a5d6ff; }
+        .code-comment { color: #8b949e; }
+        .code-variable { color: #ffa657; }
+        
         /* Modal styles */
         .modal {
             display: none;
@@ -136,7 +196,41 @@
             </div>
         </div>
     </section>
-
+    <!-- Interactive Map Preview -->
+    <section class="py-16 px-4 bg-gray-800/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Interactive Competitor Prices Table</h2>
+            
+            <!-- Map Preview Section -->
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Looker Studio Dashboard </h3>
+                    <p class="text-gray-300 max-w-3xl mx-auto mb-8">
+                        The end result is a comprehensive dashboard that visualizes competitor prices and product availability for 4 major competitors.
+                        It is heaviliy used by our Category Managers to make strategic pricing decisions and monitor market trends.
+ 
+                    </p>
+                </div>
+                
+                <!-- Interactive Map Image -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                    <div class="relative bg-gray-900/80 rounded-2xl p-6 border border-gray-700">
+                        <img 
+                            id="mapImage"
+                            src="../assets/images/competitor_prices.png" 
+                            alt="Interactive Folium map showing Dutch housing prices with geographic visualization" 
+                            class="clickable-image w-full h-auto rounded-xl shadow-2xl border border-gray-600"
+                        />
+                        <div class="absolute top-4 right-4 bg-orange-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Interactive Map
+                        </div>
+                        <!-- Click to enlarge hint -->
+                        <div class="absolute bottom-4 left-4 bg-gray-900/90 backdrop-blur-sm text-gray-300 px-3 py-1 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            🔍 Click to enlarge
+                        </div>
+                    </div>
+                </div>
     <!-- Architecture Overview -->
     <section class="py-16 px-4 bg-gray-800/30">
         <div class="max-w-6xl mx-auto">
@@ -327,28 +421,78 @@
                     <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8">
                         <h2 class="text-3xl font-bold text-white mb-6">Key Implementation Highlights</h2>
                         <div class="space-y-6">
-                            <div class="bg-gray-900/50 rounded-xl p-4">
-                                <h4 class="text-lg font-semibold text-emerald-400 mb-2">Async Orchestration</h4>
-                                <div class="text-sm text-gray-300 font-mono">
-                                    await asyncio.gather(<br>
-                                    &nbsp;&nbsp;run_scraper(fetch_mayesh_products, eta_date, "mayesh"),<br>
-                                    &nbsp;&nbsp;run_scraper(fetch_petaljet_products, eta_date, "petaljet"),<br>
-                                    &nbsp;&nbsp;run_scraper(fetch_flowermarketplace_products, eta_date, "flowermarketplace"),<br>
-                                    &nbsp;&nbsp;run_scraper(fetch_dvflora_products, eta_date, "dvflora")<br>
-                                    )
-                                </div>
-                            </div>
-                            <div class="bg-gray-900/50 rounded-xl p-4">
-                                <h4 class="text-lg font-semibold text-teal-400 mb-2">AI Matching Pipeline</h4>
-                                <div class="text-sm text-gray-300 font-mono">
-                                    # Vector similarity → GPT selection → Master table JOIN<br>
-                                    candidates = cosine_similarity(competitor_product, catalog)<br>
-                                    best_match = gpt_select_best_match(product, top_k_candidates)<br>
-                                    final_data = sql_join_with_master_table(matched_products)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+        <!-- Async Orchestration Code Block -->
+        <div class="code-block">
+            <div class="code-header">
+                <div class="code-dots">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
+                </div>
+                <h4 class="text-lg font-semibold text-emerald-400">async_scraper_orchestration.py</h4>
+            </div>
+            <div class="code-content">
+<span class="code-comment"># Concurrent competitor scraping with asyncio</span><br><span class="code-keyword">await</span> <span class="code-function">asyncio.gather</span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">run_scraper</span>(<span class="code-variable">fetch_mayesh_products</span>, <span class="code-variable">eta_date</span>, <span class="code-string">"mayesh"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">run_scraper</span>(<span class="code-variable">fetch_petaljet_products</span>, <span class="code-variable">eta_date</span>, <span class="code-string">"petaljet"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">run_scraper</span>(<span class="code-variable">fetch_flowermarketplace_products</span>, <span class="code-variable">eta_date</span>, <span class="code-string">"flowermarketplace"</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-function">run_scraper</span>(<span class="code-variable">fetch_dvflora_products</span>, <span class="code-variable">eta_date</span>, <span class="code-string">"dvflora"</span>)<br>)<br><br><span class="code-comment"># Performance: 7,629 products in ~74 seconds</span>
+            </div>
+        </div>
+
+        <!-- AI Matching Pipeline Code Block -->
+        <div class="code-block">
+            <div class="code-header">
+                <div class="code-dots">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
+                </div>
+                <h4 class="text-lg font-semibold text-teal-400">ai_product_matching.py</h4>
+            </div>
+            <div class="code-content">
+<span class="code-comment"># Two-stage AI matching: Vector similarity + GPT selection</span>
+<span class="code-keyword">def</span> <span class="code-function">match_products</span>(<span class="code-variable">competitor_product</span>, <span class="code-variable">catalog</span>):
+    <span class="code-comment"># Stage 1: Cosine similarity for top-k candidates</span>
+    <span class="code-variable">candidates</span> = <span class="code-function">cosine_similarity</span>(<span class="code-variable">competitor_product</span>, <span class="code-variable">catalog</span>)
+    <span class="code-variable">top_k</span> = <span class="code-function">get_top_candidates</span>(<span class="code-variable">candidates</span>, <span class="code-variable">k</span>=<span class="code-string">5</span>)
+    
+    <span class="code-comment"># Stage 2: GPT-4 intelligent selection</span>
+    <span class="code-variable">best_match</span> = <span class="code-function">gpt_select_best_match</span>(<span class="code-variable">competitor_product</span>, <span class="code-variable">top_k</span>)
+    
+    <span class="code-comment"># Stage 3: Join with master catalog</span>
+    <span class="code-keyword">return</span> <span class="code-function">sql_join_master_table</span>(<span class="code-variable">best_match</span>)
+
+<span class="code-comment"># Accuracy: 95%+ with 3,500+ mappings</span>
+            </div>
+        </div>
+
+        <!-- Data Cleaning Pipeline Code Block -->
+        <div class="code-block">
+            <div class="code-header">
+                <div class="code-dots">
+                    <div class="code-dot red"></div>
+                    <div class="code-dot yellow"></div>
+                    <div class="code-dot green"></div>
+                </div>
+                <h4 class="text-lg font-semibold text-blue-400">data_cleaning_pipeline.py</h4>
+            </div>
+            <div class="code-content">
+<span class="code-comment"># Multi-strategy cleaning with safe/aggressive modes</span>
+<span class="code-keyword">def</span> <span class="code-function">clean_product_data</span>(<span class="code-variable">raw_data</span>, <span class="code-variable">mode</span>=<span class="code-string">"safe"</span>):
+    <span class="code-variable">cleaned</span> = <span class="code-function">expand_abbreviations</span>(<span class="code-variable">raw_data</span>)
+    <span class="code-variable">cleaned</span> = <span class="code-function">apply_regex_patterns</span>(<span class="code-variable">cleaned</span>)
+    
+    <span class="code-keyword">if</span> <span class="code-variable">mode</span> == <span class="code-string">"aggressive"</span>:
+        <span class="code-variable">cleaned</span> = <span class="code-function">remove_special_chars</span>(<span class="code-variable">cleaned</span>)
+        <span class="code-variable">cleaned</span> = <span class="code-function">normalize_spacing</span>(<span class="code-variable">cleaned</span>)
+    
+    <span class="code-keyword">return</span> <span class="code-function">competitor_specific_cleanup</span>(<span class="code-variable">cleaned</span>)
+
+<span class="code-comment"># Handles 4 different competitor data formats</span>
+
+            </div>
+        </div>
+
+    </div>
+</div>
                 </div>
 
                 <!-- Sidebar -->
@@ -448,5 +592,70 @@
             &copy; 2025 Data Portfolio. Built with AI-powered competitive intelligence.
         </p>
     </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Image modal functionality with debugging
+        function openModal(imageSrc) {
+            console.log('Opening modal with image:', imageSrc); // Debug log
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Check if image exists before showing modal
+            const testImg = new Image();
+            testImg.onload = function() {
+                console.log('Image loaded successfully');
+                modal.classList.add('show');
+                modalImg.src = imageSrc;
+                document.body.style.overflow = 'hidden';
+            };
+            testImg.onerror = function() {
+                console.error('Image failed to load:', imageSrc);
+                alert('Image not found: ' + imageSrc);
+            };
+            testImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click listeners to all clickable images
+        document.addEventListener('DOMContentLoaded', function() {
+            const clickableImages = document.querySelectorAll('.clickable-image');
+            console.log('Found clickable images:', clickableImages.length); // Debug log
+            
+            clickableImages.forEach(function(img) {
+                console.log('Image src:', img.src); // Debug log
+                img.addEventListener('click', function() {
+                    openModal(this.src);
+                });
+            });
+
+            // Close modal when clicking outside the image
+            document.getElementById('imageModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

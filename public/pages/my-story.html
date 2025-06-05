@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story | Data Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 gradient-bg">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-sm border-b border-gray-700 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Data Portfolio
+                </h1>
+                <a href="../../index.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-6 py-2 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                My Story
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                From curiosity to expertise - the journey of a data professional passionate about turning complex data into actionable insights.
+            </p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 timeline-line rounded-full h-full"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    
+                    <!-- 2025 - Current (Left Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            📊
+                        </div>
+                        <!-- Content Left -->
+                        <div class="w-1/2 pr-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2025 - Present</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Senior Data Engineer</h3>
+                                <p class="text-gray-300 mb-3">Leading data initiatives and building scalable analytics solutions</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Architecting enterprise data pipelines</li>
+                                    <li>• Implementing AI-powered analytics</li>
+                                    <li>• Mentoring junior team members</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Empty Right Side -->
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- 2024 (Right Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🚀
+                        </div>
+                        <!-- Empty Left Side -->
+                        <div class="w-1/2 pr-8"></div>
+                        <!-- Content Right -->
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Advanced Analytics Breakthrough</h3>
+                                <p class="text-gray-300 mb-3">Developed cutting-edge competitor analysis system</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Built AI-powered price monitoring system</li>
+                                    <li>• Implemented real-time data processing</li>
+                                    <li>• Created automated KPI reporting bot</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2023 (Left Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🔧
+                        </div>
+                        <!-- Content Left -->
+                        <div class="w-1/2 pr-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Data Engineering Focus</h3>
+                                <p class="text-gray-300 mb-3">Specialized in building robust ETL pipelines and automation</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Mastered Apache Airflow</li>
+                                    <li>• Built cloud-native data solutions</li>
+                                    <li>• Developed web scraping expertise</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Empty Right Side -->
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- 2022 (Right Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            📈
+                        </div>
+                        <!-- Empty Left Side -->
+                        <div class="w-1/2 pr-8"></div>
+                        <!-- Content Right -->
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-orange-500 to-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Data Analytics Expansion</h3>
+                                <p class="text-gray-300 mb-3">Advanced into complex data visualization and business intelligence</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Created interactive dashboards</li>
+                                    <li>• Learned advanced SQL techniques</li>
+                                    <li>• Built real estate analysis tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2021 (Left Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🐍
+                        </div>
+                        <!-- Content Left -->
+                        <div class="w-1/2 pr-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Python Programming Mastery</h3>
+                                <p class="text-gray-300 mb-3">Deep dive into Python for data science and automation</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Mastered Pandas, NumPy, and Matplotlib</li>
+                                    <li>• Built first automated data pipelines</li>
+                                    <li>• Started web scraping projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Empty Right Side -->
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- 2020 (Right Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🌱
+                        </div>
+                        <!-- Empty Left Side -->
+                        <div class="w-1/2 pr-8"></div>
+                        <!-- Content Right -->
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2020</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Internetship ABN AMRO</h3>
+                                <p class="text-gray-300 mb-3">Group Innovation| Digital Assets & Tokenized Securities |</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Go To Market Strategy Tokenized Loans</li>
+                                    <li>• Focus on Marketing</li>
+                                    <li>• Built first data analysis projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                                        <!-- 2021 (Left Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🐍
+                        </div>
+                        <!-- Content Left -->
+                        <div class="w-1/2 pr-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Python Programming Mastery</h3>
+                                <p class="text-gray-300 mb-3">Deep dive into Python for data science and automation</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Mastered Pandas, NumPy, and Matplotlib</li>
+                                    <li>• Built first automated data pipelines</li>
+                                    <li>• Started web scraping projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Empty Right Side -->
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                                        <!-- 2020 (Right Side) -->
+                    <div class="relative flex items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                            🌱
+                        </div>
+                        <!-- Empty Left Side -->
+                        <div class="w-1/2 pr-8"></div>
+                        <!-- Content Right -->
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">2020</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2">Internetship ABN AMRO</h3>
+                                <p class="text-gray-300 mb-3">Group Innovation| Digital Assets & Tokenized Securities |</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Go To Market Strategy Tokenized Loans</li>
+                                    <li>• Focus on Marketing </li>
+                                    <li>• Built first data analysis projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-16 px-4 bg-gray-800/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-8">My Philosophy</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-2xl p-6">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Purpose-Driven</h3>
+                    <p class="text-gray-300">Every data point tells a story. I believe in extracting meaningful insights that drive real business decisions.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-2xl p-6">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Continuous Learning</h3>
+                    <p class="text-gray-300">Technology evolves rapidly. I stay ahead by constantly learning new tools, techniques, and best practices.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-2xl p-6">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Collaboration</h3>
+                    <p class="text-gray-300">The best solutions come from teamwork. I believe in sharing knowledge and learning from others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-8 border-t border-gray-700">
+        <p class="text-gray-400">
+            &copy; 2025 Data Portfolio. The journey continues...
+        </p>
+    </footer>
+</body>
+</html>

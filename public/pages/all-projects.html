@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Data Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 gradient-bg">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full bg-gray-900/90 backdrop-blur-sm border-b border-gray-700 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Data Portfolio
+                </h1>
+                <a href="../../index.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-6 py-2 rounded-full text-white font-semibold transition-all duration-300 transform hover:scale-105">
+                    ← Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    All Projects
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive collection of data engineering, web scraping, analytics, and automation projects showcasing advanced Python, SQL, and cloud technologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Slack KPI Bot -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" 
+                            alt="Slack KPI Bot"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Slack KPI Bot</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Automated daily business intelligence system delivering real-time KPI reports, year-over-year comparisons, and actionable insights directly to team Slack channels.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">BigQuery</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Slack API</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">SQL</span>
+                    </div>
+                    <a 
+                        href="slack-kpi-bot.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-purple-500 to-pink-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- Competitor Price Scraping -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" 
+                            alt="Competitor Price Scraping System"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Competitor Price Scraping</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Advanced competitor price monitoring system with AI-powered product matching, real-time data extraction from multiple sources, and comprehensive analytics dashboard.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-emerald-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-emerald-400 px-3 py-1 rounded-full text-sm">OpenAI GPT</span>
+                        <span class="bg-gray-700 text-emerald-400 px-3 py-1 rounded-full text-sm">BigQuery</span>
+                        <span class="bg-gray-700 text-emerald-400 px-3 py-1 rounded-full text-sm">Async Processing</span>
+                    </div>
+                    <a 
+                        href="competitor-pricing.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- Funko Pop Collector -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://images.seeklogo.com/logo-png/32/1/funko-logo-png_seeklogo-329514.png" 
+                            alt="Funko Pop Collector Application"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Funko Pop Collector</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        A full-stack application for Funko Pop collectors, featuring a Supabase backend for real-time data management and user authentication.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Supabase</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">FastAPI</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">SQL</span>
+                    </div>
+                    <a 
+                        href="funko-collector.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-purple-500 to-pink-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- Funda Web Scraper -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_1920,c_limit/production/images/BgW6/a5aJk31baPpD.png" 
+                            alt="Funda Real Estate Scraper"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Funda Web Scraper</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        A sophisticated web scraper for Funda.nl, extracting real estate data with advanced techniques to bypass anti-scraping measures.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-orange-400 px-3 py-1 rounded-full text-sm">Selenium</span>
+                        <span class="bg-gray-700 text-orange-400 px-3 py-1 rounded-full text-sm">GeoPandas</span>
+                        <span class="bg-gray-700 text-orange-400 px-3 py-1 rounded-full text-sm">Folium</span>
+                        <span class="bg-gray-700 text-orange-400 px-3 py-1 rounded-full text-sm">Pandas</span>
+                    </div>
+                    <a 
+                        href="funda-scraper.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-orange-500 to-red-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- Web Scraping Pipeline -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" 
+                            alt="Python Web Scraping"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Web Scraping Pipeline</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Automated scraper extracting data from multiple sources, storing it in a database and powering real-time dashboards.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-blue-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-blue-400 px-3 py-1 rounded-full text-sm">BeautifulSoup</span>
+                        <span class="bg-gray-700 text-blue-400 px-3 py-1 rounded-full text-sm">Scrapy</span>
+                        <span class="bg-gray-700 text-blue-400 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                    </div>
+                    <a 
+                        href="web-scraping.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- ETL for Retail Analytics -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/AirflowLogo.png/1200px-AirflowLogo.png" 
+                            alt="Apache Airflow ETL Pipeline"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">ETL for Retail Analytics</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Robust ETL workflow in Python and SQL moving millions of records daily with high reliability and speed.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-green-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-green-400 px-3 py-1 rounded-full text-sm">Apache Airflow</span>
+                        <span class="bg-gray-700 text-green-400 px-3 py-1 rounded-full text-sm">SQL</span>
+                        <span class="bg-gray-700 text-green-400 px-3 py-1 rounded-full text-sm">AWS</span>
+                    </div>
+                    <a 
+                        href="etl-retail.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-green-500 to-blue-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- Data Visualization Toolkit -->
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 border border-gray-700/50">
+                    <div class="flex items-center mb-4">
+                        <img 
+                            src="data:image/png;base64,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" 
+                            alt="Plotly Data Visualization"
+                            class="w-12 h-12 rounded-lg mr-4 object-contain bg-white/10 p-2"
+                        />
+                        <h3 class="text-xl font-bold text-white">Data Visualization Toolkit</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Scripts to transform raw datasets into clean, interactive charts and comprehensive dashboards.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Plotly</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Dash</span>
+                        <span class="bg-gray-700 text-purple-400 px-3 py-1 rounded-full text-sm">Pandas</span>
+                    </div>
+                    <a 
+                        href="data-visualization.html"
+                        class="inline-block w-full text-center bg-gradient-to-r from-purple-500 to-pink-600 hover:scale-105 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform"
+                    >
+                        View Project →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-8 border-t border-gray-700">
+        <p class="text-gray-400">
+            &copy; 2025 Data Portfolio. Comprehensive showcase of data engineering expertise.
+        </p>
+    </footer>
+</body>
+</html>
